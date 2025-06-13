@@ -1,0 +1,4 @@
+Color azul de la empresa: #1f71ba   rgba(31,113,186,255)
+Color rojo de la empresa: #e30514   rgba(227,5,20,255)
+Color verde de la emrpesa: #3caa37   rgba(60,170,55,255)
+color amarillo de la empresa: #ffee00   rgba(255,238,0,255)

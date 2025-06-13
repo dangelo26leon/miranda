@@ -1,0 +1,365 @@
+/*TODO: Configuración general para la página */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+/*TODO HEADER */
+
+/**HEADER RESPONSIVO (SIN MENU HAMBURGUESAAA PARA EL NAV-BAR)*/
+.header-principal {
+  height: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  background-color:rgb(14, 127, 185); /* Fondo ya existente */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.container-nav {
+  height: 100%;
+  display: flex;
+  background-color: rgba(39, 167, 212, 1);
+  align-items: center;
+  justify-content: center; /* Centra los elementos */
+  gap: 370px; /* Espacio grande por defecto */
+  padding: 0 40px; /* Margen interno */
+}
+
+@media (max-width: 1230px) {
+  .container-nav {
+    gap: 200px; /* Reduce el espacio en pantallas medianas */
+  }
+}
+
+@media (max-width: 925px) {
+  .container-nav {
+    gap: 50px; /* Menos espacio en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 775px) {
+  .container-nav {
+    flex-direction: column; /* Cambia la dirección de los elementos a columna en pantallas muy pequeñas */
+    gap: 20px; /* Menos espacio entre los elementos */
+    padding: 0 20px; /* Reduce el padding en pantallas pequeñas */
+  }
+}
+
+/** NAV BAR */
+
+.container-nav nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 50px;
+}
+
+.nav-bar ul li a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+
+.nav-bar ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  width: 0%;
+  background-color: #ffdd00;
+  transition: width 0.3s ease;
+}
+
+.nav-bar ul li a:hover {
+  color: #ffdd00;
+}
+
+.nav-bar ul li a:hover::after {
+  width: 100%;
+}
+
+/*TODO: --FORMULARIO DE BÚSQUEDA-- */
+main {
+  margin-top: 120px; /* misma altura del header */
+}
+
+/* TODO: --OFERTAS DE VIAJES-- */
+/* Sección principal */
+.seccion-ofertas {
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Grid de tarjetas */
+.grid-ofertas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tarjeta individual */
+.tarjeta-oferta {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tarjeta-oferta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos del contenido */
+.tarjeta-oferta .ruta {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #0077b6;
+}
+
+.tarjeta-oferta .fecha-viaje,
+.tarjeta-oferta .precio {
+  margin: 5px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Botón */
+.btn-reservar {
+  margin-top: auto;
+  padding: 10px 20px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reservar:hover {
+  background-color: #023e8a;
+}
+
+
+
+/* TODO: PASOS PARA LA COMPRA DE UN BOLETO */
+/* === Sección de pasos de compra === */
+
+.seccion-pasos {
+  background-color: #f4f9fb;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contenedor-pasos {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.seccion-pasos h2 {
+  font-size: 2.2rem;
+  color: #0077b6;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.paso {
+  background-color: white;
+  border: 2px solid #d0e7f4;
+  padding: 25px 20px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.paso:hover {
+  background-color: rgba(39, 167, 212, 0.1);
+  transform: translateY(-5px);
+  border-color: #0077b6;
+}
+
+.numero-paso {
+  background-color: #0077b6;
+  color: white;
+  font-weight: bold;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.paso h3 {
+  font-size: 1.2rem;
+  color: #003b5c;
+  margin-bottom: 10px;
+}
+
+.paso p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/*TODO: PREGUNTAS FRECUENTES*/
+#preguntas-frecuentes {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#preguntas-frecuentes h2 {
+  text-align: center;
+  color: #0077b6;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.faq-item {
+  background-color: #f0f9ff;
+  border: 1px solid #cce6f4;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 119, 182, 0.1);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 18px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #004e75;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: rgba(39, 167, 212, 0.1);
+}
+
+
+/*TODO FOOTER*/
+.footer-principal {
+  background-color: #e6f5fb; /* Azul muy claro */
+  color: #003049;
+  padding: 40px 20px 20px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c0e0f0;
+}
+
+.footer-logo img {
+  max-width: 160px;
+}
+
+.footer-links ul,
+.footer-contacto p,
+.footer-social .social-icons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links h4,
+.footer-contacto h4,
+.footer-social h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #0077b6;
+}
+
+.footer-links ul li {
+  margin: 6px 0;
+}
+
+.footer-links ul li a {
+  color: #004e89;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #0096c7;
+}
+
+.footer-contacto p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #003049;
+}
+
+.footer-social .social-icons a img {
+  width: 28px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social .social-icons a img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #006494;
+}
